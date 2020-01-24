@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Goodreads: Ricard Torres</title>
-</head>
-<body>
 <?php
+
+//======================================================================
+// Output preference?
+//======================================================================
+
+// Comment out this line if you want to have rendered HTML
+// Leaving this line will make it easier for you to copy and paste the resulting HTML
+header("Content-Type: text/plain");
 
 //======================================================================
 // Define shelves and order of rendering
@@ -91,7 +90,3 @@ foreach ($shelves_ids as $shelf) {
 
   $i++;
 } // end foreach shelves
-
-?>
-</body>
-</html>
