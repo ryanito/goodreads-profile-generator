@@ -7,3 +7,9 @@ It will group the read books into years (you could group the other shelves too).
 Please read the source code as it is well documented, feel free to fork and customize it.
 
 Enjoy!
+
+## Example
+
+This how it looks like [on my site](https://ricard.blog/books/) when pasting the generated HTML profile into a WordPress page:
+
+![Screenshot](https://cloudup.com/cJj5yNol5rD+)
