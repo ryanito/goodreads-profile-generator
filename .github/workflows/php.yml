@@ -19,7 +19,8 @@ jobs:
       run: php index.php > output.md
       
     - name: Upload file
-      uses: actions/upload-artifact@v1
-      with:
-           name: output
-           path: output.md
+      uses: finnp/create-file-action@1.0.0
+      env: 
+         FILE_NAME: "output.md"
+         FILE_DATA: output.md
+
