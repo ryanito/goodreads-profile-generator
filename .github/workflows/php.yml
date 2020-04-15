@@ -16,4 +16,10 @@ jobs:
       uses: shivammathur/setup-php@2.1.4
       
     - name: Run
-      run: php index.php
+      run: php index.php > output.md
+      
+    - name: Upload file
+      uses: actions/upload-artifact@v1
+      with:
+           name: output
+           path: output.md
