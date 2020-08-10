@@ -15,7 +15,7 @@ header("Content-Type: text/plain");
 $shelves_ids = ['currently-reading', 'read'];
 
 // To be used as section title output
-$shelves_title = ['📖 Currently reading', '📚 Read'];
+$shelves_title = ['📖 Currently Reading', '📚 Read'];
 
 //======================================================================
 // Define your user profile
