@@ -58,7 +58,7 @@ foreach ($shelves_ids as $shelf) {
 
     foreach ($year as $item) {
       // Access the RSS object
-      $link = $item->link;
+      $link = substr($item->link, 0, strpos($item->link, '?'));
       $rating = $item->user_rating;
       $title = $item->title;
 
