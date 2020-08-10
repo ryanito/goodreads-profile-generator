@@ -10,12 +10,13 @@ header("Content-Type: text/plain");
 
 //======================================================================
 // Define shelves and order of rendering
+// Possible options: currently-reading, to-read, read
 //======================================================================
 
-$shelves_ids = ['currently-reading', 'read'];
+$shelves_ids = ['currently-reading'];
 
 // To be used as section title output
-$shelves_title = ['📖 Currently Reading', '📚 Read'];
+$shelves_title = ['📖 Currently Reading'];
 
 //======================================================================
 // Define your user profile
