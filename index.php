@@ -67,12 +67,12 @@ foreach ($shelves_ids as $shelf) {
       if($shelf === 'read' && intval($rating) == 0)
         continue;
 
-      echo '* ['. $title .']('.$link.')';
+      echo '* ['. $title .']('.$link.') ';
 
       // Output the rating with stars emoji, only for the read books
       if ($shelf === 'read' && $rating) {
         for ($i=0; $i < intval($rating); $i++) {
-          echo "⭐️";
+          echo "★";
         }
       }
 
