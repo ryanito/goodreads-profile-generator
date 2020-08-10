@@ -12,16 +12,16 @@ header("Content-Type: text/plain");
 // Define shelves and order of rendering
 //======================================================================
 
-$shelves_ids = ['currently-reading', 'to-read', 'read'];
+$shelves_ids = ['currently-reading', 'read'];
 
 // To be used as section title output
-$shelves_title = ['📖 Currently reading', '📚 Want to read', '✅ Read'];
+$shelves_title = ['📖 Currently reading', '📚 Read'];
 
 //======================================================================
 // Define your user profile
 //======================================================================
 
-$user_profile_id = "104159625";
+$user_profile_id = "33604217";
 
 //======================================================================
 // RSS lists
@@ -38,7 +38,7 @@ foreach ($shelves_ids as $shelf) {
   $feed = simplexml_load_file($profile_rss.$shelf);
 
   // Print the shelf heading
-  echo "<h2>" . $shelves_title[$i] . "</h2>";
+  echo "## " . $shelves_title[$i] . "\n";
 
   // We will group the books by year on each shelf
   $years = [];
@@ -53,40 +53,38 @@ foreach ($shelves_ids as $shelf) {
     // the read books. The others go together, even if I have added them
     // during different years.
     if ($shelf === 'read') {
-      echo "<h3>" . $key . "</h3>";
+      echo "\n### " . $key . "\n";
     }
-
-    // Create the list markup
-    echo "<ul>";
 
     foreach ($year as $item) {
       // Access the RSS object
       $link = $item->link;
       $rating = $item->user_rating;
       $title = $item->title;
-    ?>
-      <li><?php
-        echo '<a href="' .$link . '" rel="nofollow" title="Goodreads: ' . $title . '">'. $title .' ';
 
-        // Output the rating with stars emoji, only for the read books
-        if ($shelf === 'read' && $rating) {
-          for ($i=0; $i < intval($rating); $i++) {
-            echo "⭐️";
-          }
+      // Hides books if they were shelved but not reviewed
+      // I found that this hides books that are back-dated.
+      if($shelf === 'read' && intval($rating) == 0)
+        continue;
+
+      echo '* ['. $title .']('.$link.')';
+
+      // Output the rating with stars emoji, only for the read books
+      if ($shelf === 'read' && $rating) {
+        for ($i=0; $i < intval($rating); $i++) {
+          echo "⭐️";
         }
+      }
 
-        echo '</a>';
-      ?></li>
-      <?php
-      } // end item loop
+      echo "\n";
 
-      // I read in the API docs to not do more than 1 request per second
-      // Just in case, we'll wait 1 second in between shelves.
-      sleep(1);
-    ?>
-    </ul>
-    <?php
-     } // end year loop
+    } // end item loop
+
+    // I read in the API docs to not do more than 1 request per second
+    // Just in case, we'll wait 1 second in between shelves.
+    sleep(1);
+
+  } // end year loop
 
   $i++;
 } // end foreach shelves
