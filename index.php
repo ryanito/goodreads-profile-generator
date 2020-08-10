@@ -38,7 +38,7 @@ foreach ($shelves_ids as $shelf) {
   $feed = simplexml_load_file($profile_rss.$shelf);
 
   // Print the shelf heading
-  echo "## " . $shelves_title[$i] . "\n";
+  echo "<h2>" . $shelves_title[$i] . "</h2>\n";
 
   // We will group the books by year on each shelf
   $years = [];
@@ -52,8 +52,15 @@ foreach ($shelves_ids as $shelf) {
     // On a personal preference I only separate by year
     // the read books. The others go together, even if I have added them
     // during different years.
+
     if ($shelf === 'read') {
-      echo "\n### " . $key . "\n";
+      if ($key == date('Y')) {
+        echo "<h3>".$key."</h3>\n";
+      } else {
+        // Show summary for past years
+        echo "<details>\n";
+        echo "<summary".@$status.">".$key."</summary>\n";
+      }
     }
 
     foreach ($year as $item) {
@@ -67,18 +74,24 @@ foreach ($shelves_ids as $shelf) {
       if($shelf === 'read' && intval($rating) == 0)
         continue;
 
-      echo '* ['. $title .']('.$link.') ';
+      echo '<li>';
+      echo '<a href="'.$link.'">'.$title.'</a>';
 
       // Output the rating with stars emoji, only for the read books
       if ($shelf === 'read' && $rating) {
+        echo ' ';
         for ($i=0; $i < intval($rating); $i++) {
           echo "⭐️";
         }
       }
 
-      echo "\n";
+      echo "</li>\n";
 
     } // end item loop
+
+    if ($shelf === 'read' && $key != date('Y')) {
+      echo "</details>\n";
+    }
 
     // I read in the API docs to not do more than 1 request per second
     // Just in case, we'll wait 1 second in between shelves.
