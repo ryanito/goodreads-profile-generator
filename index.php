@@ -72,7 +72,7 @@ foreach ($shelves_ids as $shelf) {
       // Output the rating with stars emoji, only for the read books
       if ($shelf === 'read' && $rating) {
         for ($i=0; $i < intval($rating); $i++) {
-          echo "★";
+          echo "⭐️";
         }
       }
 
