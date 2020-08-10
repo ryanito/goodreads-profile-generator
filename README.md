@@ -1,4 +1,4 @@
-## 📖 Currently reading
+## 📖 Currently Reading
 * [The Whisper Man](https://www.goodreads.com/review/show/3487494483?utm_medium=api&utm_source=rss) 
 * [Pro Git](https://www.goodreads.com/review/show/3476701464?utm_medium=api&utm_source=rss) 
 ## 📚 Read
