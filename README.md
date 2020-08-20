@@ -1,5 +1,5 @@
 ## 📖 Currently Reading
-Nothing right now.
+* [Different Seasons](https://www.goodreads.com/review/show/3504967072) 
 ## 📚 Recently Read
 * [The Whisper Man](https://www.goodreads.com/review/show/3487494483) ⭐️⭐️⭐️⭐️
 * [Pro Git](https://www.goodreads.com/review/show/3476701464) ⭐️⭐️⭐️
