@@ -13,13 +13,10 @@ header("Content-Type: text/plain");
 //======================================================================
 
 // Possible options: currently-reading, to-read, read
-$shelves_ids = ['currently-reading', 'read'];
+$shelves_ids = ['currently-reading'];
 
 // To be used as section title output
-$shelves_title = ['📖 Currently Reading', '📚 Recently Read'];
-
-// How many books to show on the read shelf
-$read_limit = 5;
+$shelves_title = ['📖 Currently Reading'];
 
 //======================================================================
 // Define your user profile
@@ -40,7 +37,7 @@ $shelf_count = 0;
 foreach ($shelves_ids as $shelf) {
 
   // Construct the shelf feed and fetch it
-  $feed = simplexml_load_file($profile_rss.$shelf);
+  $feed = simplexml_load_file($profile_rss . $shelf);
 
   // Print the shelf heading
   echo "## " . $shelves_title[$shelf_count] . "\n";
@@ -52,36 +49,13 @@ foreach ($shelves_ids as $shelf) {
     continue;
   }
 
-  $item_count = 0;
   foreach ($feed->channel->item as $item) {
 
     // Access the RSS object
     $link = substr($item->link, 0, strpos($item->link, '?'));
-    $rating = $item->user_rating;
     $title = $item->title;
 
-    // Hides books if they were shelved but not reviewed
-    // I found that this hides books that are back-dated.
-    if($shelf === 'read' && intval($rating) === 0)
-      continue;
-
-    echo '* ['. $title .']('.$link.') ';
-
-    // Output the rating with stars emoji, only for the read books
-    if ($shelf === 'read' && $rating) {
-      for ($i=0; $i < intval($rating); $i++) {
-        echo "⭐️";
-      }
-    }
-
-    echo "\n";
-
-    $item_count++;
-
-    // Only show a certain amount of books
-    if ($shelf === 'read' && $item_count >= $read_limit) {
-      break;
-    }
+    echo "* [" . $title . "](" . $link . ")\n";
 
   } // end item loop
 
