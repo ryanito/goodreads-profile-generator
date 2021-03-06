@@ -1,2 +1,2 @@
 ## 📖 Currently Reading
-* [The Colorado Kid](https://www.goodreads.com/review/show/3669491733)
+* [Later](https://www.goodreads.com/review/show/3874309365)
