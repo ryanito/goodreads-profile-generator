@@ -1,2 +1,2 @@
 ## 📖 Currently Reading
-* [A Game of Thrones (A Song of Ice and Fire, #1)](https://www.goodreads.com/review/show/2772927511)
+* [The 7½ Deaths of Evelyn Hardcastle](https://www.goodreads.com/review/show/3921526528)
