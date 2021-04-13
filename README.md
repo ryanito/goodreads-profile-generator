@@ -1,2 +1,2 @@
 ## 📖 Currently Reading
-Nothing right now.
+* [It](https://www.goodreads.com/review/show/2772943129)
